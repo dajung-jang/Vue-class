@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    // const createApp = Vue.createApp 이랑 같은 말임
+    const { createApp } = Vue
+
+    const app = createApp({
+      // setup() {} : setup 이라는 메서드를 만들어서 createApp 객체에 넣어준다는 의미
+      setup() {
+        const message = 'hello vue!'
+
+        return {
+          message
+        }
+      }
+    })
+  
+    // app 이라는 객체를 html 에서 id 가 app 인 곳에 mount 한 것
+    app.mount('#app')
+  </script>
+</body>
+</html>

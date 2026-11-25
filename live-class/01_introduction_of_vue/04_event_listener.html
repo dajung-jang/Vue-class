@@ -11,10 +11,12 @@
   <div id="app">
     <!-- [실습 포인트/힌트] v-on:이벤트이름="setup에서 return한 함수 이름" -->
     <!-- TODO: 버튼을 클릭하면 increment가 실행되도록 v-on:click을 작성하세요. -->
-    <button>버튼</button>
+    <button v-on:click="increment">증가</button>
+    <button v-on:click="decrement">감소</button>
     <p>{{ number }}</p>
     <p>{{ number }}</p>
     <p>{{ number }}</p>
+    
   </div>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -30,11 +32,16 @@
           // [실습 포인트/힌트] number++가 아니라 number.value++ (number는 ref 객체)
           // TODO: number의 값을 1 증가시키세요.
           // 결과: 버튼을 누를 때마다 세 개의 숫자가 함께 1씩 증가
-
+          number.value++
+        }
+        // 버튼 누를때마다 숫자 감소하는 함수
+        const decrement = function () {
+          number.value--
         }
         return {
           number,
-          increment
+          increment,
+          decrement,
         }
       }
     })
